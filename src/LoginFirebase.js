@@ -52,16 +52,6 @@ class LoginFirebase extends React.Component{
     return User.getUserName();
   }
 
-  responseSuccess (googleUser) {
-    debugger;
-    const idToken = googleUser.getAuthResponse().id_token;
-    User.logIn(idToken);
-  }
-
-  responseError (error) {
-    debugger;
-  }
-
   render () {
     if (!User.isAuthorized()) {
       return (
@@ -72,7 +62,7 @@ class LoginFirebase extends React.Component{
             Вход
           </button>
         </div>
-      );
+      )
     } else {
       return (
         <div>
@@ -83,7 +73,7 @@ class LoginFirebase extends React.Component{
             Выход
           </button>
         </div>
-      );
+      )
     }
   }
 
