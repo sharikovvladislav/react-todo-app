@@ -4,7 +4,7 @@ import * as firebase from "firebase";
 
 import * as User from './User';
 
-class Login extends React.Component{
+class LoginFirebase extends React.Component{
 
   constructor (props, context) {
     super(props, context);
@@ -89,4 +89,4 @@ class Login extends React.Component{
 
 }
 
-export default Login;
+export default LoginFirebase;

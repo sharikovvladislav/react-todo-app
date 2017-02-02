@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './FirebaseInit';
 
 import LoginFirebase from './LoginFirebase';
+import TodoApp from './TodoApp';
 import logo from './logo.svg';
 import './App.css';
 
@@ -15,6 +16,7 @@ class App extends Component {
           <h2>TODO App</h2>
         </div>
         <LoginFirebase/>
+        <TodoApp />
       </div>
     );
   }
