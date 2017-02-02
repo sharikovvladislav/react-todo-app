@@ -25,5 +25,4 @@ export function getUserName () {
 function getUserData () {
   const user = JSON.parse(localStorage.getItem('user'));
   return user || null;
-
 }

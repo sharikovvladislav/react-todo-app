@@ -10,9 +10,8 @@ class Login extends React.Component{
     super(props, context);
   }
 
-  onClick (what) {
-    debugger;
-    var provider = new firebase.auth.GoogleAuthProvider();
+  onEnterClick () {
+    let provider = new firebase.auth.GoogleAuthProvider();
 
     firebase.auth().signInWithPopup(provider).then(function(result) {
       console.dir(result);
@@ -24,7 +23,6 @@ class Login extends React.Component{
       // здесь нужно как-то заставить перерисоваться всю страницу
       window.location.href = '/';
     }).catch(function(error) {
-      debugger;
       console.error({
         errorCode: error.code,
         errorMessage: error.message,
@@ -32,6 +30,21 @@ class Login extends React.Component{
         credential: error.credential
       });
       // ...
+    });
+  }
+
+  onExitClick () {
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      User.logOut();
+      window.location.href = '/';
+    }, function(error) {
+      console.error({
+        errorCode: error.code,
+        errorMessage: error.message,
+        email: error.email,
+        credential: error.credential
+      });
     });
   }
 
@@ -55,7 +68,7 @@ class Login extends React.Component{
         <div>
           <button
             key={this.key}
-            onClick={this.onClick}>
+            onClick={this.onEnterClick}>
             Вход
           </button>
         </div>
@@ -64,6 +77,11 @@ class Login extends React.Component{
       return (
         <div>
           <h1>Привет, {this.getUserName()}</h1>
+          <button
+            key={this.key}
+            onClick={this.onExitClick}>
+            Выход
+          </button>
         </div>
       );
     }
