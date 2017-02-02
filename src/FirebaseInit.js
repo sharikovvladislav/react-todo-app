@@ -7,4 +7,3 @@ firebase.initializeApp({
   storageBucket: "todo-app-9b559.appspot.com",
   messagingSenderId: "187485664046"
 });
-debugger
