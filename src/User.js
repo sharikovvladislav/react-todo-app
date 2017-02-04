@@ -12,7 +12,7 @@ export function logOut (token) {
 
 export function isAuthorized () {
   const user = getUserData();
-  return user && user.isAuthorized || false;
+  return (user && user.isAuthorized) || false ;
 }
 
 export function getUserName () {
@@ -20,6 +20,16 @@ export function getUserName () {
     userData = user.data;
 
   return userData && userData.displayName ? userData.displayName : 'Имя не определено :(';
+}
+
+export function getUid () {
+  const user = getUserData(),
+    userData = user.data;
+  if (userData && userData.uid) {
+    return userData.uid;
+  } else {
+    throw new Error('no uid!')
+  }
 }
 
 function getUserData () {
