@@ -15,7 +15,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>TODO App</h2>
         </div>
-        <LoginFirebase/>
+        <LoginFirebase />
         <TodoApp />
       </div>
     );
